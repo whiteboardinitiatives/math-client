@@ -73,7 +73,7 @@ export default function PlayerSlider({ questions }: { questions: Question[] }) {
   return (
     <div className="w-full px-4 py-6">
       {/* Main content area */}
-      <div className="w-full max-w-[70%] mx-auto">
+      <div className="w-full max-w-[90%] mx-auto">
         {/* Image container - optimized for 16:9 projector display */}
         <div className="w-full relative mb-6">
           <img
