@@ -88,7 +88,7 @@ export default function PlayerSlider({ questions }: { questions: Question[] }) {
         {/* Remaining players counter - positioned below image */}
         <div className="text-center mb-6">
           <h1 className="text-2xl font-semibold">
-            Remaining Players:{" "}
+            Remaining Questions:{" "}
             <span className="text-primary">{players?.length || "0"}</span>
           </h1>
         </div>
