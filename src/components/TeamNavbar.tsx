@@ -1,0 +1,109 @@
+"use client";
+
+import { useState } from "react";
+
+import Link from "next/link";
+import { Home, Menu, X, SquareDashedMousePointer } from "lucide-react";
+import LogoutButton from "./LogOutButton";
+
+interface Team {
+  _id: string;
+  name: string;
+  balance: number;
+  senior: string;
+  captainImage: string;
+}
+
+interface TeamNavbarProps {
+  team: Team;
+}
+
+export default function TeamNavbar({ team }: TeamNavbarProps) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  return (
+    <header className="bg-primary text-white shadow-md">
+      <div className="max-w-7xl mx-auto">
+        {/* Desktop Navbar */}
+        <div className="hidden md:flex items-center justify-between h-16 px-4">
+          {/* Left: Team Info */}
+          <div className="flex items-center">
+            <div>
+              <h1 className="font-bold text-lg">{team.name}</h1>
+              <p className="text-xs text-gray-200">Senior: {team.senior}</p>
+            </div>
+          </div>
+
+          {/* Center: Navigation */}
+          <nav className="flex items-center space-x-4">
+            <Link
+              href="/team"
+              className="flex items-center px-3 py-2 rounded-md hover:bg-[#3c6142] transition-colors"
+            >
+              <Home className="h-5 w-5 mr-2" />
+              <span>Home</span>
+            </Link>
+            <Link
+              href="/team/dashboard"
+              className="flex items-center px-3 py-2 rounded-md hover:bg-[#3c6142] transition-colors"
+            >
+              <SquareDashedMousePointer className="h-5 w-5 mr-2" />
+              <span>Dashboard</span>
+            </Link>
+          </nav>
+
+          {/* Right: Balance and Logout */}
+          <LogoutButton />
+        </div>
+
+        {/* Mobile Navbar */}
+        <div className="md:hidden">
+          <div className="flex items-center justify-between h-16 px-4">
+
+            {/* Right: Balance and Menu Toggle */}
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={toggleMobileMenu}
+                className="p-2 rounded-md hover:bg-[#3c6142] transition-colors"
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <nav className="px-4 pb-4 space-y-2">
+              <Link
+                href="/team"
+                className="flex items-center px-3 py-2 rounded-md hover:bg-[#3c6142] transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Home className="h-5 w-5 mr-2" />
+                <span>Home</span>
+              </Link>
+              <Link
+                href="/team/dashboard"
+                className="flex items-center px-3 py-2 rounded-md hover:bg-[#3c6142] transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <SquareDashedMousePointer className="h-5 w-5 mr-2" />
+                <span>Dashboard</span>
+              </Link>
+              <LogoutButton />
+            </nav>
+          )}
+        </div>
+      </div>
+    </header>
+  );
+}
