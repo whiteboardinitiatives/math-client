@@ -29,7 +29,7 @@ export default function AdminSidebar({ isOpen, closeSidebar }: SidebarProps) {
       } transition-transform duration-300 ease-in-out z-30 h-full overflow-y-auto`}
     >
       <div className="p-4 bg-primary text-white flex justify-between items-center">
-        <h2 className="text-xl font-bold">{"General's Gambit"}</h2>
+        <h2 className="text-xl font-bold">Innoverse BD</h2>
         <button
           onClick={closeSidebar}
           className="text-white cursor-pointer hover:text-[#e08a42] transition-colors focus:outline-none"

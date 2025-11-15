@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Menu, Dices } from "lucide-react";
+import { Menu } from "lucide-react";
 import LogoutButton from "./LogOutButton";
 
 interface NavbarProps {
@@ -13,7 +13,7 @@ export default function AdminNavbar({
   sidebarOpen = false,
 }: NavbarProps) {
   return (
-    <nav className="bg-white text-black h-16 flex items-center justify-between px-4 shadow-md z-10">
+    <nav className="bg-white text-black h-20 flex items-center justify-between px-4 shadow-md z-10">
       <div className="flex items-center">
         <button
           onClick={toggleSidebar}
@@ -22,9 +22,19 @@ export default function AdminNavbar({
         >
           <Menu className="h-6 w-6" />
         </button>
-        <Link href="/" className="flex items-center">
-          <Dices className="h-8 w-8 text-[#e08a42] mr-2" />
-          <span className="text-xl font-bold">Innoverse Bangladesh Math Maestros</span>
+        <Link href="/" className="flex py-4 items-center">
+          <div className="flex items-center gap-5">
+            <Link href={"/"} className="flex items-center gap-2">
+              <img src="/black-logo.png" className="w-20" alt="Logo" />
+            </Link>
+            <Link href={"/"}>
+              <img
+                className="w-30"
+                src="/innoverse-logo.webp"
+                alt="Innoverse"
+              />
+            </Link>
+          </div>
         </Link>
       </div>
       <LogoutButton />
