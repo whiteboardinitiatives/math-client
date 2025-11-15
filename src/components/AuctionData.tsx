@@ -33,7 +33,7 @@ const Auction = () => {
   };
 
   return (
-    <div className="fixed top-24 right-6 z-40 w-64">
+    <div className="fixed top-[60%] left-6 z-40 w-64">
       <div className="border-3 relative border-primary rounded-lg overflow-hidden shadow-2xl">
         <button
           onClick={handleReset}
